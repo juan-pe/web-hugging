@@ -1,0 +1,30 @@
+{% extends 'common/base.html' %}
+
+{% block content%}
+<!-- texto underconstrucction -->
+<div class="row">	
+   <div>
+      <p class="text-centered">
+         Actualmente estamos trabajando en una nueva web
+      </p>
+   </div>
+</div>
+
+<!-- contacto -->
+<div class="row">	
+	<div>
+      <p> 
+      Si tienes preguntas, puedes visitrar nuestra <a href="{% url 'common.views.faq' %}">FAQ</a> o ponerte en contacto con nosotros a través de las siguente dirección de correo <a href="mailto:huggingnepal@gmail.com">huggingnepal@gmail.com</a>
+      </p>
+	</div>
+</div>
+<!-- colabora -->
+<div class="row">	
+   <div>
+      <p class="text-centered">
+         Si lo prefieres, puedes hacer una aportación en este numero de cuenta o mediante Paypal
+      </p>
+   </div>
+</div>
+
+{% endblock content%}
