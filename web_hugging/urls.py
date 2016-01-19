@@ -25,4 +25,3 @@ urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^faq', views.faq, name='faqs')
 ]
-
