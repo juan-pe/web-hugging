@@ -2,7 +2,7 @@ import json
 from .base import *
 
 DEBUG = False
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bowie']
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
