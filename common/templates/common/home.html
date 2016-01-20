@@ -1,29 +1,31 @@
 {% extends 'common/base.html' %}
+{% load staticfiles %}
+
+{% block navbar %}
+{% endblock%}
 
 {% block content%}
 <!-- texto underconstrucction -->
-<div class="row">	
-   <div>
-      <p class="text-centered">
-         Actualmente estamos trabajando en una nueva web
-      </p>
+<div class="underconstruccion">
+   <div class="row">
+      <div class="logo">
+         <img class="page-logo" src="{% static 'img/logodef.png' %}" alt="Logo Hugging Nepal">
+      <div>
+      
    </div>
-</div>
 
-<!-- contacto -->
-<div class="row">	
-	<div>
-      <p> 
-      Si tienes preguntas, puedes visitrar nuestra <a href="{% url 'common.views.faq' %}">FAQ</a> o ponerte en contacto con nosotros a través de las siguente dirección de correo <a href="mailto:huggingnepal@gmail.com">huggingnepal@gmail.com</a>
-      </p>
-	</div>
-</div>
-<!-- colabora -->
-<div class="row">	
-   <div>
-      <p class="text-centered">
-         Si lo prefieres, puedes hacer una aportación en este numero de cuenta o mediante Paypal
-      </p>
+   <div class="row"> 
+      <div class="jumbotron">
+         <p class="text-centered">
+            Actualmente estamos trabajando en una nueva web
+         </p>
+         <p> 
+            Si tienes preguntas, puedes visitrar nuestra <a href="{% url 'common.views.faq' %}">FAQ</a> o ponerte en contacto con nosotros a través de las siguiente dirección de correo <a href="mailto:huggingnepal@gmail.com">huggingnepal@gmail.com</a>
+         </p>
+         <p class="text-centered">
+            Si lo prefieres, puedes hacer una aportación a este número de cuenta: <strong> ES34 2100 4382 1902 0004 7077</strong> <br> o mediante Paypal
+         </p>
+      </div>
    </div>
 </div>
 

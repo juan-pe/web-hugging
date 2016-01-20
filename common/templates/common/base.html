@@ -15,22 +15,26 @@
    <body>
 
       <div class="container">
-         {% include 'common/navbar.html' %}
+         {% block navbar %}
+            {% include 'common/navbar.html' %}
+         {% endblock %}
          
          {% block content %}
-         {% endblock%}
+         {% endblock %}
       </div>
     
       
-      {% include 'common/footer.html' %}
+      {% block footer %}
+         {% include 'common/footer.html' %}
+      {% endblock %}
 
-      {% block js%}
+      {% block js %}
       <!-- jQuery -->
       <script src="{% static 'js/lib/jquery.min.js' %}"></script>
       
       <!-- Bootrstrap -->
       <script src="{% static 'js/lib/bootstrap.min.js' %}"></script>
-      {% endblock js%}
+      {% endblock %}
    </body>
 
 </html>
