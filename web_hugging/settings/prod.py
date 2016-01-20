@@ -18,7 +18,7 @@ DATABASES = {
         'USER': bd_config['user'],
         'PASSWORD': bd_config['password'],
         'HOST': 'localhost',
-        'PORT': '5433',
+        'PORT': '5432',
     }
 }
 
