@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+   <head>
+   	<title>
+         {% block title %} HUGGING NEPAL {% endblock %}
+      </title>
+      <!-- Bootstrap -->
+      <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
+
+      <!-- Common -->
+      <link rel="stylesheet" href="{% static 'css/common/common.css' %}">      
+   </head>
+   
+   <body>
+
+      <div class="container">
+         {% block navbar %}
+            {% include 'common/navbar.html' %}
+         {% endblock %}
+         
+         {% block content %}
+         {% endblock %}
+      </div>
+    
+      
+      {% block footer %}
+         {% include 'common/footer.html' %}
+      {% endblock %}
+
+      {% block js %}
+      <!-- jQuery -->
+      <script src="{% static 'js/lib/jquery.min.js' %}"></script>
+      
+      <!-- Bootrstrap -->
+      <script src="{% static 'js/lib/bootstrap.min.js' %}"></script>
+      {% endblock %}
+   </body>
+
+</html>
