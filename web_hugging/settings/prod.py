@@ -2,7 +2,10 @@ import json
 from .base import *
 
 DEBUG = False
-ALLOWED_HOSTS = ['bowie', '178.62.193.36']
+ALLOWED_HOSTS = ['bowie',
+                 '178.62.193.36',
+                 'www.huggingnepal.org',
+                 'huggingnepal.org']
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
@@ -35,10 +38,20 @@ LOGGING = {
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'logs/debug.log'),
         },
+        'hugging': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs/hugging.log'),
+        }
     },
     'loggers': {
         'django': {
             'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'common': {
+            'handlers': ['hugging'],
             'level': 'DEBUG',
             'propagate': True,
         },
