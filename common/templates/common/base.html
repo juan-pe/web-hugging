@@ -11,6 +11,9 @@
       {% block base_content %}
 
       {% endblock %}
+      <footer>
+         {% static_placeholder 'footer' %}    
+      </footer>
       {% render_block "js" %}
   </body>
 </html>

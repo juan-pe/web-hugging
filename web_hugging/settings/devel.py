@@ -25,5 +25,61 @@ DATABASES = {
 # Application definition
 
 INSTALLED_APPS += [
+    # django-filer
+    'easy_thumbnails',
+    'filer',
+    'mptt',
+
+    # cmspugin-filer
+    # 'cmsplugin_filer_file',
+    # 'cmsplugin_filer_folder',
+    # 'cmsplugin_filer_link',
+    # 'cmsplugin_filer_image',
+    # 'cmsplugin_filer_teaser',
+    # 'cmsplugin_filer_video',
+
+    # django-cms plugins
+    'djangocms_inherit',
+    'djangocms_file',
+    'djangocms_picture',
+    'djangocms_teaser',
+    'djangocms_video',
+    'reversion',
+
+    # personal
     'common',
 ]
+
+# filer
+FILER_ENABLE_PERMISSIONS = True
+
+# easy_thumbnails
+THUMBNAIL_HIGH_RESOLUTION = True
+
+
+THUMBNAIL_PROCESSORS = (
+    'easy_thumbnails.processors.colorspace',
+    'easy_thumbnails.processors.autocrop',
+    #'easy_thumbnails.processors.scale_and_crop',
+    'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+    'easy_thumbnails.processors.filters',
+)
+
+# djago-cms templates
+CMS_TEMPLATES = (
+    ('common/template_1.html', 'Template One'),
+    ('common/template_2.html', 'Template Two')
+)
+
+MIGRATION_MODULES = {
+    # Add also the following modules if you're using these plugins:
+    'djangocms_file': 'djangocms_file.migrations_django',
+    # 'djangocms_flash': 'djangocms_flash.migrations_django',
+    # 'djangocms_googlemap': 'djangocms_googlemap.migrations_django',
+    # 'djangocms_link': 'djangocms_link.migrations_django',
+    'djangocms_picture': 'djangocms_picture.migrations_django',
+    'djangocms_snippet': 'djangocms_snippet.migrations_django',
+    'djangocms_teaser': 'djangocms_teaser.migrations_django',
+    'djangocms_video': 'djangocms_video.migrations_django',
+    'djangocms_text_ckeditor': 'djangocms_text_ckeditor.migrations_django',
+}

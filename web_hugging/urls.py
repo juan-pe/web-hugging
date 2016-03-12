@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """web_hugging URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -18,13 +19,8 @@ from django.conf.urls import url, include
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
-from common import views
 
-# admin.autodiscover()
-
-urlpatterns = i18n_patterns('',
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', views.home, name='home'),
-    url(r'^faq', views.faq, name='faqs'),
-    url(r'^cms', include('cms.urls'))
+urlpatterns = i18n_patterns(
+    url(r'^admin/', admin.site.urls, name='admin'),
+    url(r'^', include('cms.urls'), name='cms'),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

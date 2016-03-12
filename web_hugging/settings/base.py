@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for web_hugging project.
 
@@ -12,16 +13,16 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+gettext = lambda s: s
 
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'j!c1m8s&wz8qqiy48#if(+--qu=a)dtbw0ypk&ww9&2^ypzw5$'
-
 
 # Application definition
 
@@ -48,7 +49,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    # 'reversion',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -60,8 +60,8 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     # django-cms
     'cms.middleware.user.CurrentUserMiddleware',
@@ -92,15 +92,12 @@ TEMPLATES = [
     },
 ]
 
-# djago-cms templates
-CMS_TEMPLATES = (
-    ('common/template_1.html', 'Template One'),
-)
-
 WSGI_APPLICATION = 'web_hugging.wsgi.application'
 
 # Site_id
 SITE_ID = 1
+
+TEXT_SAVE_IMAGE_FUNCTION = 'cmsplugin_filer_image.integrations.ckeditor.create_image_plugin'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -124,9 +121,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-LANGUAGE_CODE = 'es-ES'
+LANGUAGE_CODE = 'es'
 LANGUAGES = [
-    ('es-ES', 'Castellano'),
+    ('es', 'Español'),
+    ('en', 'English'),
 ]
 
 TIME_ZONE = 'CET'
@@ -140,13 +138,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
-
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static/'),
-)
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # Media
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-MEDIA_URL = "/media/"
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
