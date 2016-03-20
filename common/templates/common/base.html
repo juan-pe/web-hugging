@@ -1,19 +1,36 @@
 {% load staticfiles %}
 {% load cms_tags sekizai_tags %}
 <html>
-  <head>
+   <head>
       <title>{% page_attribute "page_title" %}</title>
       {% render_block "css" %}
-  </head>
-  <body>
+   </head>
+   <body>
+      {% addtoblock "css" %}
+         <!-- Bootstrap -->
+         <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+      {% endaddtoblock %}
+      
       {% cms_toolbar %}
-      {% placeholder base_content %}
-      {% block base_content %}
 
-      {% endblock %}
-      <footer>
+      <div class="container">
+         {% placeholder base_content %}
+
+         {% block base_content %}
+         {% endblock %}
+      </div>
+      <footer class="footer">
          {% static_placeholder 'footer' %}    
       </footer>
+
+      
+      {% addtoblock "js" %}
+         <!-- jQuery -->
+         <script src="{% static 'js/lib/jquery.min.js' %}"></script>
+         
+         <!-- Bootrstrap -->
+         <script src="{% static 'js/lib/bootstrap.min.js' %}"></script>
+      {% endaddtoblock %}
       {% render_block "js" %}
-  </body>
+   </body>
 </html>
