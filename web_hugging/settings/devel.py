@@ -69,8 +69,8 @@ THUMBNAIL_PROCESSORS = (
 
 # djago-cms templates
 CMS_TEMPLATES = (
-    ('common/template_1.html', 'Template One'),
-    ('common/template_2.html', 'Template Two')
+    ('common/template_inicio.html', 'Inicio'),
+    ('common/footer.html', 'Footer')
 )
 
 MIGRATION_MODULES = {

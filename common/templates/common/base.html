@@ -20,7 +20,9 @@
          {% endblock %}
       </div>
       <footer class="footer">
-         {% static_placeholder 'footer' %}    
+         {% block footer %}
+            {% include 'common/footer.html' %}
+         {% endblock %}
       </footer>
 
       

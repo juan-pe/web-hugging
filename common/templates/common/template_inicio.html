@@ -1,5 +1,5 @@
 {% extends "common/base.html" %}
-{% load cms_tags %}
+{% load cms_tags sekizai_tags %}
 {% load menu_tags %}
 
 {% block base_content %} 
@@ -27,10 +27,15 @@
    <div class="row">
       <div class="col-md-12">
          <div class="jumbotron">
-            {% placeholder template_1_content %}      
+            {% placeholder template_inicio_content %}      
          </div>
       </div>
       
    </div>
 
 {% endblock %}
+
+{% addtoblock "js" %}
+   <!-- jquery backstretch -->
+   <script src="{% static 'js/lib/jquery.backstretch.min.js' %}"></script>
+{% endaddtoblock %}
