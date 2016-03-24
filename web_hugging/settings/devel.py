@@ -47,6 +47,7 @@ INSTALLED_APPS += [
     'djangocms_column',
     'djangocms_link',
     'reversion',
+    'aldryn_bootstrap3',
 
     # personal
     'common',

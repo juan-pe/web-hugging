@@ -1,41 +1,23 @@
 {% extends "common/base.html" %}
 {% load cms_tags sekizai_tags %}
-{% load menu_tags %}
+{% load menu_tags staticfiles %}
 
 {% block base_content %} 
-   <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
-         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-               <span class="sr-only">Toggle navigation</span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"> Hugging Nepal </a>
-         </div>
-         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-               {% show_menu 0 0 %}
-            </ul>   
-         </div>
-      </div>
-   </nav>
+   {% addtoblock "css" %}
+      <link href="{% static 'css/template_inicio/inicio.css' %}" rel="stylesheet" type="text/css" />
+   {% endaddtoblock%}
 
-   {% show_breadcrumb %}
-   
    <div class="row">
       <div class="col-md-12">
-         <div class="jumbotron">
-            {% placeholder template_inicio_content %}      
-         </div>
+            {% placeholder template_inicio_content %}
       </div>
       
    </div>
 
-{% endblock %}
-
 {% addtoblock "js" %}
    <!-- jquery backstretch -->
    <script src="{% static 'js/lib/jquery.backstretch.min.js' %}"></script>
+   <script src="{% static 'js/template_inicio/background.js' %}"></script>
 {% endaddtoblock %}
+
+{% endblock %}

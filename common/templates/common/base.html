@@ -13,9 +13,11 @@
       
       {% cms_toolbar %}
 
-      <div class="container">
-         {% placeholder base_content %}
+      <header id="header">
+         {% include 'common/navbar.html' %}
+      </header><!-- /header -->
 
+      <div class="container">
          {% block base_content %}
          {% endblock %}
       </div>
