@@ -10,7 +10,7 @@
          <!-- Bootstrap -->
          <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
       {% endaddtoblock %}
-      
+
       {% cms_toolbar %}
 
       <header id="header">
@@ -27,14 +27,15 @@
          {% endblock %}
       </footer>
 
-      
+
       {% addtoblock "js" %}
          <!-- jQuery -->
          <script src="{% static 'js/lib/jquery.min.js' %}"></script>
-         
          <!-- Bootrstrap -->
          <script src="{% static 'js/lib/bootstrap.min.js' %}"></script>
       {% endaddtoblock %}
+      {% block js %}
+      {% endblock %}
       {% render_block "js" %}
    </body>
 </html>

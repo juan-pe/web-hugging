@@ -2,7 +2,7 @@
 {% load cms_tags sekizai_tags %}
 {% load menu_tags staticfiles %}
 
-{% block base_content %} 
+{% block base_content %}
    {% addtoblock "css" %}
       <link href="{% static 'css/template_inicio/inicio.css' %}" rel="stylesheet" type="text/css" />
    {% endaddtoblock%}
@@ -11,13 +11,15 @@
       <div class="col-md-12">
             {% placeholder template_inicio_content %}
       </div>
-      
+
    </div>
+{% endblock %}
 
-{% addtoblock "js" %}
-   <!-- jquery backstretch -->
-   <script src="{% static 'js/lib/jquery.backstretch.min.js' %}"></script>
-   <script src="{% static 'js/template_inicio/background.js' %}"></script>
-{% endaddtoblock %}
-
+{% block js %}
+  {{ block.super }}
+  {% addtoblock "js" %}
+     <!-- jquery backstretch -->
+     <script src="{% static 'js/lib/jquery.backstretch.min.js' %}"></script>
+     <script src="{% static 'js/template_inicio/background.js' %}"></script>
+  {% endaddtoblock %}
 {% endblock %}
