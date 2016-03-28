@@ -1,5 +1,6 @@
 import json
 from .base import *
+from django.utils.translation import gettext_lazy as _
 
 DEBUG = True
 ALLOWED_HOSTS = []
@@ -70,8 +71,10 @@ THUMBNAIL_PROCESSORS = (
 
 # djago-cms templates
 CMS_TEMPLATES = (
-    ('common/template_inicio.html', 'Inicio'),
-    ('common/footer.html', 'Footer')
+    ('common/template_inicio.html', _('Inicio')),
+    ('common/template_proyectos.html', _('Proyectos')),
+    ('common/template_lista_proyectos.html', _('Lista proyectos')),
+    ('common/template_colabora.html', _('Colabora')),
 )
 
 MIGRATION_MODULES = {

@@ -1,0 +1,15 @@
+{% extends "common/base.html" %}
+{% load cms_tags sekizai_tags %}
+{% load menu_tags staticfiles %}
+
+{% block base_content %}
+   {% addtoblock "css" %}
+      <link href="{% static 'css/common/common.css' %}" rel="stylesheet" type="text/css" />
+   {% endaddtoblock%}
+
+   <div class="row">
+      <div class="col-md-12">
+         {% placeholder proyectos %}
+      </div>
+   </div>
+{% endblock %}

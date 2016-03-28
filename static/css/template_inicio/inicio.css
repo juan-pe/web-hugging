@@ -1,36 +1,20 @@
 .navbar-brand img {
-  width: 120px;
+  width: 180px;
 }
 .navbar-inverse {
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-  background: rgba(0, 0, 0, 0.7);
+border: none;
+padding: 20px 0;
+background: transparent;
+font-size: 16px;
 }
 .navbar-inverse .navbar-nav li a {
-  color: #f1f1f1;
+color: #f1f1f1;
 }
-.navbar-inverse .navbar-nav li a:hover,
-.navbar-inverse .navbar-nav li a.active {
-  font-weight: bold;
-  background: transparent;
+.navbar-inverse .navbar-nav li a:hover {
+font-weight: bold;
+background: transparent;
 }
-@media (min-width: 1200px) {
-  .navbar-inverse {
-    border: none;
-    padding: 20px 0;
-    background: transparent;
-  }
-  .navbar-inverse .navbar-nav li a {
-    color: #f1f1f1;
-  }
-  .navbar-inverse .navbar-nav li a:hover {
-    font-weight: bold;
-    background: transparent;
-  }
-  /*.navbar-scroll {
-    padding: 5px 0;
-    background: rgba(0, 0, 0, 0.7);
-  }*/
+.navbar-scroll {
+padding: 5px 0;
+background: transparent;
 }
