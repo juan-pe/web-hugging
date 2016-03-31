@@ -6,7 +6,8 @@ DEBUG = False
 ALLOWED_HOSTS = ['bowie',
                  '178.62.193.36',
                  'www.huggingnepal.org',
-                 'huggingnepal.org']
+                 'huggingnepal.org',
+                 'test.huggingnepal.org']
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
@@ -27,32 +28,32 @@ DATABASES = {
 }
 
 INSTALLED_APPS += [
-        # django-filer
-        'easy_thumbnails',
-        'filer',
-        'mptt',
+    # django-filer
+    'easy_thumbnails',
+    'filer',
+    'mptt',
 
-        # cmspugin-filer
-        # 'cmsplugin_filer_file',
-        # 'cmsplugin_filer_folder',
-        # 'cmsplugin_filer_link',
-        # 'cmsplugin_filer_image',
-        # 'cmsplugin_filer_teaser',
-        # 'cmsplugin_filer_video',
+    # cmspugin-filer
+    # 'cmsplugin_filer_file',
+    # 'cmsplugin_filer_folder',
+    # 'cmsplugin_filer_link',
+    # 'cmsplugin_filer_image',
+    # 'cmsplugin_filer_teaser',
+    # 'cmsplugin_filer_video',
 
-        # django-cms plugins
-        'djangocms_inherit',
-        'djangocms_file',
-        'djangocms_picture',
-        'djangocms_teaser',
-        'djangocms_video',
-        'djangocms_column',
-        'djangocms_link',
-        'reversion',
-        'aldryn_bootstrap3',
+    # django-cms plugins
+    'djangocms_inherit',
+    'djangocms_file',
+    'djangocms_picture',
+    'djangocms_teaser',
+    'djangocms_video',
+    'djangocms_column',
+    'djangocms_link',
+    'reversion',
+    'aldryn_bootstrap3',
 
-        # personal
-        'common',
+    # personal
+    'common',
 ]
 
 LOGGING = {
@@ -81,5 +82,10 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
+        'cms': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        }
     },
 }
