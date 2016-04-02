@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 from .base import *
+from django.utils.translation import gettext_lazy as _
 
 DEBUG = False
 ALLOWED_HOSTS = ['bowie',
