@@ -27,6 +27,35 @@ DATABASES = {
     }
 }
 
+INSTALLED_APPS += [
+    # django-filer
+    'easy_thumbnails',
+    'filer',
+    'mptt',
+
+    # cmspugin-filer
+    # 'cmsplugin_filer_file',
+    # 'cmsplugin_filer_folder',
+    # 'cmsplugin_filer_link',
+    # 'cmsplugin_filer_image',
+    # 'cmsplugin_filer_teaser',
+    # 'cmsplugin_filer_video',
+
+    # django-cms plugins
+    'djangocms_inherit',
+    'djangocms_file',
+    'djangocms_picture',
+    'djangocms_teaser',
+    'djangocms_video',
+    'djangocms_column',
+    'djangocms_link',
+    'reversion',
+    'aldryn_bootstrap3',
+
+    # personal
+    'common',
+]
+
 # filer
 FILER_ENABLE_PERMISSIONS = True
 
@@ -62,35 +91,6 @@ MIGRATION_MODULES = {
     'djangocms_video': 'djangocms_video.migrations_django',
     'djangocms_text_ckeditor': 'djangocms_text_ckeditor.migrations_django',
 }
-
-INSTALLED_APPS += [
-    # django-filer
-    'easy_thumbnails',
-    'filer',
-    'mptt',
-
-    # cmspugin-filer
-    # 'cmsplugin_filer_file',
-    # 'cmsplugin_filer_folder',
-    # 'cmsplugin_filer_link',
-    # 'cmsplugin_filer_image',
-    # 'cmsplugin_filer_teaser',
-    # 'cmsplugin_filer_video',
-
-    # django-cms plugins
-    'djangocms_inherit',
-    'djangocms_file',
-    'djangocms_picture',
-    'djangocms_teaser',
-    'djangocms_video',
-    'djangocms_column',
-    'djangocms_link',
-    'reversion',
-    'aldryn_bootstrap3',
-
-    # personal
-    'common',
-]
 
 LOGGING = {
     'version': 1,
