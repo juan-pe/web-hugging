@@ -58,16 +58,23 @@ INSTALLED_APPS += [
 
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': False,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '%(asctime)s %(levelname)s [%(name)s %(filename)s:%(funcName)s:%(lineno)d] %(message)s'
+        },
+    },
     'handlers': {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
+            'formatter': 'verbose',
             'filename': os.path.join(BASE_DIR, 'logs/debug.log'),
         },
         'hugging': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
+            'formatter': 'verbose',
             'filename': os.path.join(BASE_DIR, 'logs/hugging.log'),
         }
     },
