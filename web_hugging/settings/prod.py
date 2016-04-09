@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 import json
-from .base import *
+
 from django.utils.translation import gettext_lazy as _
+
+from .base import *
 
 DEBUG = False
 ALLOWED_HOSTS = ['bowie',
@@ -67,7 +69,7 @@ THUMBNAIL_HIGH_RESOLUTION = True
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
     'easy_thumbnails.processors.autocrop',
-    #'easy_thumbnails.processors.scale_and_crop',
+    # 'easy_thumbnails.processors.scale_and_crop',
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters',
 )
@@ -102,7 +104,7 @@ LOGGING = {
         },
     },
     'handlers': {
-        'file': {
+        'debug': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'formatter': 'verbose',
@@ -117,7 +119,7 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers': ['file'],
+            'handlers': ['debug'],
             'level': 'DEBUG',
             'propagate': True,
         },
@@ -127,7 +129,7 @@ LOGGING = {
             'propagate': True,
         },
         'cms': {
-            'handlers': ['file'],
+            'handlers': ['debug'],
             'level': 'DEBUG',
             'propagate': True,
         }
