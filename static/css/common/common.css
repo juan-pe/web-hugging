@@ -3,8 +3,14 @@ hr.dotted {
     margin: 2rem 0;
 }
 
+.navbar-brand a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
 .navbar-brand img {
     width: 180px;
+    height: 40px;
 }
 
 .navbar-inverse {
