@@ -1,12 +1,12 @@
-{% extends "common/base.html" %}
+{% extends "common/template_proyectos.html" %}
 {% load cms_tags sekizai_tags %}
 {% load menu_tags staticfiles %}
 
-{% block base_content %}
+{% block header %}
+   {{ block.super }}
+{% endblock %}
 
-   {% addtoblock "css" %}
-      <link href="{% static 'css/common/common.css' %}" rel="stylesheet" type="text/css" />
-   {% endaddtoblock%}
+{% block base_content %}
 
    <div class="row">
       <div class="col-md-12">
