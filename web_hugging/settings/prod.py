@@ -27,11 +27,11 @@ INSTALLED_APPS += [
     # 'cmsplugin_filer_video',
 
     # django-cms plugins
-    # 'djangocms_inherit',
-    # 'djangocms_file',
-    # 'djangocms_picture',
-    # 'djangocms_teaser',
-    # 'djangocms_video',
+    'djangocms_inherit',
+    'djangocms_file',
+    'djangocms_picture',
+    'djangocms_teaser',
+    'djangocms_video',
     'djangocms_column',
     'djangocms_link',
     'reversion',
