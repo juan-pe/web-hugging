@@ -14,7 +14,9 @@
       {% cms_toolbar %}
 
       <header id="header">
-         {% include 'common/navbar.html' %}
+         {% block header %}
+            {% include 'common/navbar.html' %}
+         {% endblock %}
       </header><!-- /header -->
 
       <div class="container">

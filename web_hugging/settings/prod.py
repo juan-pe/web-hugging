@@ -31,7 +31,7 @@ INSTALLED_APPS += [
     'djangocms_file',
     'djangocms_picture',
     'djangocms_teaser',
-    'djangocms_video',
+    # 'djangocms_video',
     'djangocms_column',
     'djangocms_link',
     'reversion',

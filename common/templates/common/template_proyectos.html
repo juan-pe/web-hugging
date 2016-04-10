@@ -2,6 +2,32 @@
 {% load cms_tags sekizai_tags %}
 {% load menu_tags staticfiles %}
 
+{% block header %}
+<div class="header">
+   <nav class="navbar navbar-static-top">
+      <div class="container">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="" id="navbar-logo">
+               <img src= "{% static 'img/logodef.png' %}"  alt="logo huging nepal">
+            </a>
+         </div>
+         <div id="collpase-navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+               {% show_menu 0 0 %}
+            </ul>
+         </div>
+      </div>
+   </nav>
+</div>
+{% endblock %}
+
+
 {% block base_content %}
    {% addtoblock "css" %}
       <link href="{% static 'css/common/common.css' %}" rel="stylesheet" type="text/css" />

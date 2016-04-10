@@ -13,10 +13,7 @@ hr.dotted {
     height: 40px;
 }
 
-.navbar-inverse {
+.navbar {
     font-size: 16px;
+    padding: 20px 0;
 }
-
-/*.page-header{
-    margin: 20px;
-}*/
