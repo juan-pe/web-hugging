@@ -22,4 +22,7 @@ from django.contrib import admin
 
 urlpatterns = i18n_patterns(
     url(r'^admin/', admin.site.urls, name='admin'),
-    url(r'^', include('cms.urls'), name='cms'),)
+    url(r'^', include('cms.urls'), name='cms'),
+)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + \
+    static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
