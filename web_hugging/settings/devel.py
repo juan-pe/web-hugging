@@ -61,16 +61,36 @@ CMS_TEMPLATES = (
     ('common/template_lista_proyectos.html', _('Lista proyectos')),
     ('common/template_colabora.html', _('Colabora')),
 )
-
-MIGRATION_MODULES = {
-    # Add also the following modules if you're using these plugins:
-    'djangocms_file': 'djangocms_file.migrations_django',
-    # 'djangocms_flash': 'djangocms_flash.migrations_django',
-    # 'djangocms_googlemap': 'djangocms_googlemap.migrations_django',
-    # 'djangocms_link': 'djangocms_link.migrations_django',
-    'djangocms_picture': 'djangocms_picture.migrations_django',
-    'djangocms_snippet': 'djangocms_snippet.migrations_django',
-    'djangocms_teaser': 'djangocms_teaser.migrations_django',
-    'djangocms_video': 'djangocms_video.migrations_django',
-    'djangocms_text_ckeditor': 'djangocms_text_ckeditor.migrations_django',
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '%(asctime)s %(levelname)s [%(name)s %(filename)s:%(funcName)s:%(lineno)d] %(message)s'
+        },
+    },
+    'handlers': {
+        'debug': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['debug'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'common': {
+            'handlers': ['debug'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'cms': {
+            'handlers': ['debug'],
+            'level': 'DEBUG',
+            'propagate': True,
+        }
+    },
 }
