@@ -27,13 +27,13 @@ INSTALLED_APPS += [
     # 'cmsplugin_filer_video',
 
     # django-cms plugins
-    'djangocms_inherit',
-    'djangocms_file',
-    'djangocms_picture',
-    'djangocms_teaser',
-    'djangocms_video',
-    'djangocms_column',
-    'djangocms_link',
+    # 'djangocms_inherit',
+    # 'djangocms_file',
+    # 'djangocms_picture',
+    # 'djangocms_teaser',
+    # 'djangocms_video',
+    # 'djangocms_column',
+    # 'djangocms_link',
     'reversion',
     'aldryn_bootstrap3',
 
@@ -64,18 +64,6 @@ CMS_TEMPLATES = (
     ('common/template_colabora.html', _('Colabora')),
 )
 
-MIGRATION_MODULES = {
-    # Add also the following modules if you're using these plugins:
-    'djangocms_file': 'djangocms_file.migrations_django',
-    # 'djangocms_flash': 'djangocms_flash.migrations_django',
-    # 'djangocms_googlemap': 'djangocms_googlemap.migrations_django',
-    # 'djangocms_link': 'djangocms_link.migrations_django',
-    'djangocms_picture': 'djangocms_picture.migrations_django',
-    'djangocms_snippet': 'djangocms_snippet.migrations_django',
-    'djangocms_teaser': 'djangocms_teaser.migrations_django',
-    'djangocms_video': 'djangocms_video.migrations_django',
-    'djangocms_text_ckeditor': 'djangocms_text_ckeditor.migrations_django',
-}
 
 LOGGING = {
     'version': 1,
