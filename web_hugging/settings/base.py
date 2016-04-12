@@ -155,11 +155,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # djago-cms templates
 CMS_TEMPLATES = (
-    ('common/template_inicio.html', _('Inicio')),
-    ('common/template_proyectos.html', _('Proyectos')),
-    ('common/template_lista_proyectos.html', _('Lista proyectos')),
-    ('common/template_colabora.html', _('Colabora')),
-    ('common/template_faq.html', _('Faq')),
+    ('common/template_colabora.html', _(u'Colabora')),
+    ('common/template_contacto.html', _(u'Contancto')),
+    ('common/template_faq.html', _(u'Faq')),
+    ('common/template_generico.html', _(u'Template genérico')),
+    ('common/template_inicio.html', _(u'Inicio')),
+    ('common/template_lista_proyectos.html', _(u'Lista proyectos')),
+    ('common/template_proyectos.html', _(u'Proyectos')),
 )
 
 
