@@ -14,6 +14,7 @@ import logging
 import os
 
 from django.core.exceptions import ImproperlyConfigured
+from django.utils.translation import gettext_lazy as _
 
 logger = logging.getLogger(__name__)
 
@@ -151,6 +152,15 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# djago-cms templates
+CMS_TEMPLATES = (
+    ('common/template_inicio.html', _('Inicio')),
+    ('common/template_proyectos.html', _('Proyectos')),
+    ('common/template_lista_proyectos.html', _('Lista proyectos')),
+    ('common/template_colabora.html', _('Colabora')),
+    ('common/template_faq.html', _('Faq')),
+)
 
 
 # Internationalization

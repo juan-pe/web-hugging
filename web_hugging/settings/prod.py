@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 import json
 
-from django.utils.translation import gettext_lazy as _
-
 from .base import *
 
 DEBUG = False
@@ -54,14 +52,6 @@ THUMBNAIL_PROCESSORS = (
     # 'easy_thumbnails.processors.scale_and_crop',
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters',
-)
-
-# djago-cms templates
-CMS_TEMPLATES = (
-    ('common/template_inicio.html', _('Inicio')),
-    ('common/template_proyectos.html', _('Proyectos')),
-    ('common/template_lista_proyectos.html', _('Lista proyectos')),
-    ('common/template_colabora.html', _('Colabora')),
 )
 
 # Static files (CSS, JavaScript, Images)

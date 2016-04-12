@@ -1,0 +1,17 @@
+{% extends "common/base.html" %}
+{% load cms_tags sekizai_tags %}
+{% load menu_tags staticfiles %}
+
+{% block header %}
+   {% include "common/_navbar_common.html" %}
+{% endblock %}
+
+
+{% block base_content %}
+
+   <div class="row">
+      <div class="col-md-12">
+         {% placeholder colabora %}
+      </div>
+   </div>
+{% endblock %}
