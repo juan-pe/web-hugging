@@ -45,6 +45,11 @@ INSTALLED_APPS = [
     # django-cms-ck-editor:
     'djangocms_text_ckeditor',
 
+    # djangocms-cascade
+    'cmsplugin_cascade',
+    'cmsplugin_cascade.extra_fields',
+    'cmsplugin_cascade.sharable',
+
     # django-cms:
     'cms',
 
@@ -100,12 +105,17 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-            	'sekizai.context_processors.sekizai',
+                'sekizai.context_processors.sekizai',
                 'cms.context_processors.cms_settings',
-	    ],
+            ],
         },
     },
 ]
+
+CMSPLUGIN_CASCADE_PLUGINS = (
+    'cmsplugin_cascade.bootstrap3',
+    'cmsplugin_cascade.link',
+)
 
 WSGI_APPLICATION = 'web_hugging.wsgi.application'
 
