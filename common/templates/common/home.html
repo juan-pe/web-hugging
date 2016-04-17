@@ -11,15 +11,15 @@
       <div class="logo text-center">
          <img class="page-logo" src="{% static 'img/logodef.png' %}" alt="Logo Hugging Nepal">
       </div>
-      
+
    </div>
 
-   <div class="row text-center"> 
+   <div class="row text-center">
       <div class="jumbotron">
          <p class="text-center">
             Actualmente estamos trabajando en una nueva web
          </p>
-         <p class="text-center"> 
+         <p class="text-center">
             Si tienes preguntas, puedes visitrar nuestra <a href="{% url 'common.views.faq' %}">FAQ</a> o ponerte en contacto con nosotros a través de las siguiente dirección de correo <a href="mailto:huggingnepal@gmail.com">huggingnepal@gmail.com</a>
          </p>
          <p class="text-center">
@@ -41,3 +41,7 @@
 </div>
 
 {% endblock content%}
+
+{% block footer %}
+
+{% endblock %}
