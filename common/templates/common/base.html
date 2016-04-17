@@ -9,6 +9,9 @@
       {% addtoblock "css" %}
          <!-- Bootstrap -->
          <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+
+         <!-- Font Awesom -->
+         <link href="{% static 'css/font_awesome/font-awesome.min.css' %}" rel="stylesheet" type="text/css" />
       {% endaddtoblock %}
 
       {% cms_toolbar %}
@@ -22,10 +25,10 @@
          {% block base_content %}
          {% endblock %}
       </div>
-      <footer class="footer">
-         {% block footer %}
-         {% endblock %}
-      </footer>
+
+      {% block footer %}
+         {% include 'common/_footer.html' %}
+      {% endblock %}
 
 
       {% addtoblock "js" %}
@@ -33,6 +36,9 @@
          <script src="{% static 'js/lib/jquery.min.js' %}"></script>
          <!-- Bootrstrap -->
          <script src="{% static 'js/lib/bootstrap.min.js' %}"></script>
+
+         <!-- Recaptcha -->
+         <script src='https://www.google.com/recaptcha/api.js'></script >
       {% endaddtoblock %}
       {% block js %}
       {% endblock %}

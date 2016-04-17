@@ -8,10 +8,24 @@
 
 
 {% block base_content %}
+   <div class="row">
+      {% include "common/_breadcrum.html" %}
+   </div>
 
    <div class="row">
-      <div class="col-md-12">
-         {% placeholder contacto %}
+      <div class="col-sm-12 col-md-12">
+         <div class="panel panel-default">
+            <div class="panel-body">
+               <div class="row">
+                  <div class="col-sm-6 col-md-6">
+                     {% placeholder contacto_text %}
+                  </div>
+                  <div class="col-sm-6 col-md-6">
+                     {% placeholder contacto_form %}
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
    </div>
 {% endblock %}

@@ -69,6 +69,34 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+
+    # django-filer
+    'easy_thumbnails',
+    'filer',
+    'mptt',
+
+    # cmspugin-filer
+    # 'cmsplugin_filer_file',
+    # 'cmsplugin_filer_folder',
+    # 'cmsplugin_filer_link',
+    # 'cmsplugin_filer_image',
+    # 'cmsplugin_filer_teaser',
+    # 'cmsplugin_filer_video',
+
+    # django-cms plugins
+    'djangocms_inherit',
+    'djangocms_file',
+    'djangocms_picture',
+    'djangocms_teaser',
+    'djangocms_video',
+    'djangocms_column',
+    'djangocms_link',
+    'reversion',
+    'aldryn_bootstrap3',
+    'djangocms_forms',
+
+    # personal
+    'common',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -192,3 +220,23 @@ USE_TZ = True
 # Media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+# Forms
+DJANGOCMS_FORMS_RECAPTCHA_PUBLIC_KEY = '6LcZlR0TAAAAAFY99XvWYWsCXROBywWDfl6R13z-'
+try:
+    DJANGOCMS_FORMS_RECAPTCHA_SECRET_KEY = CONFIG['recaptcha_secret']
+except Exception as e:
+    logger.exception(e)
+    raise ImproperlyConfigured
+
+DJANGOCMS_FORMS_PLUGIN_MODULE = _('Generic')
+DJANGOCMS_FORMS_PLUGIN_NAME = _('Form')
+DJANGOCMS_FORMS_DEFAULT_TEMPLATE = 'djangocms_forms/form_template/default.html'
+DJANGOCMS_FORMS_TEMPLATES = (
+    ('djangocms_forms/form_template/default.html', _('Default')),
+)
+DJANGOCMS_FORMS_USE_HTML5_REQUIRED = True
+
+DJANGOCMS_FORMS_WIDGET_CSS_CLASSES = {
+    '__all__': ('form-control', )
+}

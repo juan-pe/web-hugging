@@ -1,9 +1,16 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 100px;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
   background: transparent;
   padding-top: ;
 }
@@ -12,4 +19,13 @@
   padding-top: 20px;
   padding-right: 15px;
   padding-left: 15px;
+}
+
+.footer-logo img {
+    width: 180px;
+    height: 40px;
+}
+
+.social-btn-footer{
+    position: relative;
 }
