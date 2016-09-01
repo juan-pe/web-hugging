@@ -46,9 +46,9 @@ INSTALLED_APPS = [
     'djangocms_text_ckeditor',
 
     # djangocms-cascade
-    'cmsplugin_cascade',
-    'cmsplugin_cascade.extra_fields',
-    'cmsplugin_cascade.sharable',
+    # 'cmsplugin_cascade',
+    # 'cmsplugin_cascade.extra_fields',
+    # 'cmsplugin_cascade.sharable',
 
     # django-cms:
     'cms',
