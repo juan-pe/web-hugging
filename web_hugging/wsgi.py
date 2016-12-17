@@ -11,6 +11,9 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "web_hugging.settings")
+wd = os.path.basename(os.path.basename(__name__))
+
+os.environ.setdefault("WEB_CONFIG", "../config/config.json")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "web_hugging.settings.devel")
 
 application = get_wsgi_application()

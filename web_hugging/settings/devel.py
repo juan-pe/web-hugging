@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-import json
-
 from .base import *
 
 DEBUG = True
@@ -12,23 +10,25 @@ FILER_ENABLE_PERMISSIONS = True
 # easy_thumbnails
 THUMBNAIL_HIGH_RESOLUTION = True
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': bd_config['name'],
+        'USER': bd_config['user'],
+        'PASSWORD': bd_config['password'],
+        'HOST': bd_config['host'],
+        'PORT': bd_config['port'],
+    }
+}
+
 
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
     'easy_thumbnails.processors.autocrop',
-    # 'easy_thumbnails.processors.scale_and_crop',
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
-    'easy_thumbnails.processors.filters',
+    'easy_thumbnails.processors.filters'
 )
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
-STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static/')
-]
-STATIC_ROOT = ''
 
 LOGGING = {
     'version': 1,
@@ -46,11 +46,11 @@ LOGGING = {
         },
     },
     'loggers': {
-        'django': {
-            'handlers': ['debug'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
+        # 'django': {
+        #     'handlers': ['debug'],
+        #     'level': 'DEBUG',
+        #     'propagate': True,
+        # },
         'common': {
             'handlers': ['debug'],
             'level': 'DEBUG',

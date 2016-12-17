@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 import json
 import logging
 import os
-
 from django.core.exceptions import ImproperlyConfigured
 from django.utils.translation import gettext_lazy as _
 
@@ -21,6 +20,15 @@ logger = logging.getLogger(__name__)
 try:
     with open(os.getenv('WEB_CONFIG'), 'r') as f:
         CONFIG = json.loads(f.read())
+except Exception as e:
+    logger.exception(e)
+    raise ImproperlyConfigured
+
+# Database
+# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
+
+try:
+    bd_config = CONFIG['data_bases']
 except Exception as e:
     logger.exception(e)
     raise ImproperlyConfigured
@@ -42,61 +50,42 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # django-cms-ck-editor:
-    'djangocms_text_ckeditor',
-
-    # djangocms-cascade
-    # 'cmsplugin_cascade',
-    # 'cmsplugin_cascade.extra_fields',
-    # 'cmsplugin_cascade.sharable',
-
-    # django-cms:
-    'cms',
-
-    # utilities:
-    'treebeard',  # utilities for implementing a tree
-    'menus',
-    'sekizai',
-
-    # django-cms modules:
     'djangocms_admin_style',
-
-    # django
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.admin',
     'django.contrib.sites',
+    'django.contrib.sitemaps',
+    'django.contrib.staticfiles',
+    'django.contrib.messages',
 
-    # django-filer
-    'easy_thumbnails',
+    'cms',
+    'menus',
+    'sekizai',
+    'treebeard',
+    'djangocms_text_ckeditor',
     'filer',
-    'mptt',
-
-    # cmspugin-filer
-    # 'cmsplugin_filer_file',
-    # 'cmsplugin_filer_folder',
-    # 'cmsplugin_filer_link',
-    # 'cmsplugin_filer_image',
-    # 'cmsplugin_filer_teaser',
-    # 'cmsplugin_filer_video',
-
-    # django-cms plugins
-    'djangocms_inherit',
-    'djangocms_file',
-    'djangocms_picture',
-    'djangocms_teaser',
-    'djangocms_video',
+    'easy_thumbnails',
     'djangocms_column',
     'djangocms_link',
-    'reversion',
+    'cmsplugin_filer_file',
+    'cmsplugin_filer_folder',
+    'cmsplugin_filer_image',
+    'cmsplugin_filer_utils',
+    'djangocms_style',
+    'djangocms_snippet',
+    'djangocms_googlemap',
+    'djangocms_video',
     'aldryn_bootstrap3',
-    'djangocms_forms',
-
-    # personal
-    'common',
+    'adminsortable2',
+    'aldryn_reversion',
+    'aldryn_translation_tools',
+    'parler',
+    'sortedm2m',
+    'aldryn_faq',
+    'taggit',
+    'reversion',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -108,8 +97,6 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     # django-cms
     'cms.middleware.user.CurrentUserMiddleware',
@@ -140,10 +127,10 @@ TEMPLATES = [
     },
 ]
 
-CMSPLUGIN_CASCADE_PLUGINS = (
-    'cmsplugin_cascade.bootstrap3',
-    'cmsplugin_cascade.link',
-)
+# CMSPLUGIN_CASCADE_PLUGINS = (
+#     'cmsplugin_cascade.bootstrap3',
+#     'cmsplugin_cascade.link',
+# )
 
 WSGI_APPLICATION = 'web_hugging.wsgi.application'
 
@@ -152,26 +139,6 @@ WSGI_APPLICATION = 'web_hugging.wsgi.application'
 SITE_ID = 1
 
 TEXT_SAVE_IMAGE_FUNCTION = 'cmsplugin_filer_image.integrations.ckeditor.create_image_plugin'
-
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
-try:
-    bd_config = CONFIG['data_bases']
-except Exception as e:
-    logger.exception(e)
-    raise ImproperlyConfigured
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': bd_config['name'],
-        'USER': bd_config['user'],
-        'PASSWORD': bd_config['password'],
-        'HOST': bd_config['host'],
-        'PORT': bd_config['port'],
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -212,31 +179,36 @@ LANGUAGES = [
     ('en', 'English'),
 ]
 
-TIME_ZONE = 'CET'
+CMS_LANGUAGES = {
+    # Customize this
+    1: [
+        {
+            'redirect_on_fallback': True,
+            'code': 'es',
+            'hide_untranslated': False,
+            'public': True,
+            'name': gettext('es'),
+        },
+    ],
+    'default': {
+        'redirect_on_fallback': True,
+        'hide_untranslated': False,
+        'public': True,
+    },
+}
+
+TIME_ZONE = 'Europe/Madrid'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# Media
+# Static files (CSS, JavaScript, Images) and Media
+STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-# Forms
-DJANGOCMS_FORMS_RECAPTCHA_PUBLIC_KEY = '6LcZlR0TAAAAAFY99XvWYWsCXROBywWDfl6R13z-'
-try:
-    DJANGOCMS_FORMS_RECAPTCHA_SECRET_KEY = CONFIG['recaptcha_secret']
-except Exception as e:
-    logger.exception(e)
-    raise ImproperlyConfigured
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-DJANGOCMS_FORMS_PLUGIN_MODULE = _('Generic')
-DJANGOCMS_FORMS_PLUGIN_NAME = _('Form')
-DJANGOCMS_FORMS_DEFAULT_TEMPLATE = 'djangocms_forms/form_template/default.html'
-DJANGOCMS_FORMS_TEMPLATES = (
-    ('djangocms_forms/form_template/default.html', _('Default')),
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
 )
-DJANGOCMS_FORMS_USE_HTML5_REQUIRED = True
-
-DJANGOCMS_FORMS_WIDGET_CSS_CLASSES = {
-    '__all__': ('form-control', )
-}

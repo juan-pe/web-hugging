@@ -17,13 +17,17 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.i18n import i18n_patterns
-from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 
 urlpatterns = i18n_patterns(
     url(r'^admin/', admin.site.urls, name='admin'),
     url(r'^', include('cms.urls'), name='cms'),
-    url(r'^', include('djangocms_forms.urls')),
 )
-#if settings.DEBUG:
-#    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += [
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
+            {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+    ] + staticfiles_urlpatterns()
